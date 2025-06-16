@@ -8,7 +8,7 @@ import org.fastcampus.community_feed.user.domain.User;
 import org.junit.jupiter.api.Test;
 
 class UserServiceTest {
-
+    // 테스트를 위한 페이크 객체
     private final UserService userService = FakeObjectFactory.getUserService();
 
     @Test

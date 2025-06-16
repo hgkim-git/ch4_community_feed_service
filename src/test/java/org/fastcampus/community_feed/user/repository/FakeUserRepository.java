@@ -7,7 +7,7 @@ import org.fastcampus.community_feed.user.application.interfaces.UserRepository;
 import org.fastcampus.community_feed.user.domain.User;
 
 public class FakeUserRepository implements UserRepository {
-
+    // RDBMS 처럼 동작하도록 인메모리 DB 만들기
     private final Map<Long, User> store = new HashMap<>();
 
     @Override

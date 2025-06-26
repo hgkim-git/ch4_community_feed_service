@@ -7,7 +7,6 @@ import org.fastcampus.community_feed.post.application.interfaces.CommentReposito
 import org.fastcampus.community_feed.post.application.interfaces.LikeRepository;
 import org.fastcampus.community_feed.post.domain.Post;
 import org.fastcampus.community_feed.post.domain.comment.Comment;
-import org.fastcampus.community_feed.post.domain.content.CommentContent;
 import org.fastcampus.community_feed.user.application.UserService;
 import org.fastcampus.community_feed.user.domain.User;
 
@@ -18,6 +17,12 @@ public class CommentService {
     private final CommentRepository commentRepository;
     private final LikeRepository likeRepository;
 
+    /**
+     * 점점 서비스에서 의존하고 있는 객체가 많아짐
+     *  -> 테스트 할 때마다 의존성을 주입해야되서 테스트 하기 번거로움
+     *  -> 의존성이 변경되게 되면 테스트를 위해 작성했던 코드들을 다 변경해야 함
+     *  ==> 필요한 의존성을 주입해서 싱글톤인 페이크 객체를 리턴해주는 팩토리 클래스(FakeObjectFactory)를 통해 테스트 진행
+      */
     public CommentService(UserService userService, PostService postService, CommentRepository commentRepository, LikeRepository likeRepository) {
         this.userService = userService;
         this.postService = postService;
